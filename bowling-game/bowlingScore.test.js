@@ -1,34 +1,45 @@
 const bowling = require('./bowlingScore').bowling;
 const roll = require('./bowlingScore').rolls;
+let rollArray = require('./bowlingScore').rollArray;
 describe('the roll function', () => {
-    it('should return score for each throw when argument is the number of pins knocked down', () => {
-        const result = roll(5);
-        expect(result).toBe(5);
+    it('should add the score to rollArray', () => {
+        roll(1);
+        console.log(rollArray);
+        expect(rollArray.includes(1)).toBe(true);
     });
 });
 
 describe('the bowling score', () => {
     it('should return a number as a score', () => {
-        let rolls = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6];
-        const result = bowling(rolls);
+        rollArray = [];
+        roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6);
+        const result = bowling();
         expect(typeof result).toBe('number');
     });
 
     it('should return correct final score for no strike/spare case', () => {
-        let rolls = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6];
-        const result = bowling(rolls);
+        rollArray = [];
+        roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6); roll(3); roll(6);
+
+        console.log(rollArray);
+        const result = bowling();
         expect(result).toBe(90);
     });
 
     it('should return correct final score for a strike case', () => {
-        let rolls = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10];
-        const result = bowling(rolls);
+        rollArray = [];
+        roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(10); roll(10); roll(10);
+        const result = bowling();
         expect(result).toBe(30);
     });
 
     it('should return correct final score for a spare case', () => {
-        let rolls = [6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-        const result = bowling(rolls);
+        rollArray = [];
+        roll(6);
+        roll(4);
+        roll(3);
+        roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0); roll(0);
+        const result = bowling();
         expect(result).toBe(16);
     });
 
