@@ -1,9 +1,10 @@
-const bowling = (rollArray) => {
+let rollArray = [];
+const bowling = () => {
     let bowlingScore = 0;
 
     let rollIndex = 0;
     for (let frame = 0; frame < 10; frame++) {
-        let frameScoreArray = [];
+
         if (rollArray[rollIndex] < 10) //no strike case
         {
             if ((rollArray[rollIndex] + rollArray[rollIndex + 1]) == 10) //spare case
@@ -24,10 +25,10 @@ const bowling = (rollArray) => {
             rollIndex += 1;
         }
 
-        bowlingScore += frameScore(frameScoreArray);
+
 
     }
-
+    rollArray = [];
     return bowlingScore;
 
 }
@@ -52,8 +53,9 @@ const frameScore = (rolls, rollIndex, frameCase) => {  //calculates the total sc
 
 }
 
-const rolls = (pins) => { //the function called for each throw
-    return pins; //return the score for that throw;
+const rolls = (pin) => { //the function called for each throw
+    rollArray.push(pin);//adds the score for the roll array
+
 }
 
-module.exports = { frameScore, bowling, rolls };
+module.exports = { frameScore, bowling, rolls, rollArray };
