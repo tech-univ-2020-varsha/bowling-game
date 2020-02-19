@@ -21,15 +21,15 @@ describe('the bowling score', () => {
     });
 
     it('should return correct final score for a strike case', () => {
-        let rolls = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10];
+        let rolls = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10];
         const result = bowling(rolls);
         expect(result).toBe(30);
     });
 
     it('should return correct final score for a spare case', () => {
-        let rolls = [6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let rolls = [6, 4, 3, 0, 6, 4, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         const result = bowling(rolls);
-        expect(result).toBe(16);
+        expect(result).toBe(35);
     });
 
 });

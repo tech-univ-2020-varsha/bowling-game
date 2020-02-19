@@ -30,7 +30,7 @@ describe('the frame score function', () => {
         const result = frameScore(rolls, 18, 'spare');
         expect(result).toBe(20);
     });
-    it('should return correct frame sum for fill ball case of three spares', () => {
+    it('should return correct frame sum for fill ball case of three strikes', () => {
         let rolls = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10];
         const result = frameScore(rolls, 18, 'strike');
         expect(result).toBe(30);
